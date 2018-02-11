@@ -1,7 +1,6 @@
 battery-monitor2mqtt
 =========
 Simple MQTT publishing of computer battery status.
-(C) 2018 Lubomir Kamensky <lubomir.kamensky@gmail.com> 
 
 
 class BatteryMonitor is simpliefied version of the same class from project:
