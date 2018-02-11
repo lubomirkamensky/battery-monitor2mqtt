@@ -54,6 +54,7 @@ class BatteryMonitor:
     def __init__(self):
         self.raw_battery_info = self.get_raw_battery_info()
         self.get_processed_battery_info()
+        self.on_ac_power = subprocess.call(['on_ac_power'])
 
     def get_raw_battery_info(self):
         command = "acpi -b"
@@ -102,6 +103,8 @@ try:
                 ("percentage",monitor.processed_battery_info["percentage"])]
         if monitor.remainingFlag:
             data.append(("remaining",monitor.processed_battery_info["remaining"]))
+        if monitor.on_ac_power:
+            data.append(("on_ac_power",monitor.on_ac_power))    
         elements=[]
 
         for row in data:
