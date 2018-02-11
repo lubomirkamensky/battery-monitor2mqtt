@@ -33,11 +33,7 @@ Command line options
 
 Example usage:
 --------------
-
 python3 battery-monitor2mqtt.py --mqtt-topic lubuntu
-
-
-
 
 
 production usage with PM2:

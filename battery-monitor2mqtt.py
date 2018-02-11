@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # battery-monitor2mqtt - simple MQTT publishing of computer battery status
 #
-# Written and (C) 2018 by Lubomir Kamensky <lubomir.kamensky@gmail.com>
-# Provided under the terms of the MIT license
+# Written 2018 by Lubomir Kamensky <lubomir.kamensky@gmail.com>
+# Provided under GNU GENERAL PUBLIC LICENSE
 #
 # Requires:
 # - Eclipse Paho for Python - http://www.eclipse.org/paho/clients/python/
@@ -26,7 +26,7 @@ parser.add_argument('--mqtt-port', default='1883', type=int, help='MQTT server p
 parser.add_argument('--mqtt-topic', default='json', help='Topic prefix to be used for \
                     subscribing/publishing. Defaults to "modbus/"')
 parser.add_argument('--frequency', default='3', help='How often is the battery \
-                    checked for the changes, in seconds. Only integers. Defaults to 1')
+                    checked for the changes, in seconds. Only integers. Defaults to 3')
 
 args=parser.parse_args()
 
