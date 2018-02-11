@@ -45,6 +45,7 @@ def signal_handler(signal, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 lastValue = {}
+remainingFlag=True
 
 class BatteryMonitor:
     raw_battery_info = ''
@@ -70,7 +71,7 @@ class BatteryMonitor:
         try:
             self.processed_battery_info["remaining"] = in_list[2]
         except IndexError:
-            pass
+            remainingFlag=False
 
         return self.processed_battery_info
 
@@ -98,8 +99,9 @@ try:
     while True:
         monitor = BatteryMonitor()
         data = [("state",monitor.processed_battery_info["state"]),
-                ("percentage",monitor.processed_battery_info["percentage"]),
-                ("remaining",monitor.processed_battery_info["remaining"])]
+                ("percentage",monitor.processed_battery_info["percentage"])]
+        if remainingFlag:
+            data.append(("remaining",monitor.processed_battery_info["remaining"]))
         elements=[]
 
         for row in data:
